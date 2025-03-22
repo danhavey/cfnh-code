@@ -1,3 +1,8 @@
+
+$(function() {
+  let trackHeight = 0;
+}
+
 /*  On Window Load - Fix the Arrows and Dots  */
   
   $(window).on('load', function() {
@@ -7,7 +12,7 @@
 /*  Set Slider Sections All To The Same Height  */
     
     $('[data-title*="sliderColumn"] .slick-track').each(function() {
-      let trackHeight = $(this).css('height');
+      trackHeight = $(this).css('height');
       document.body.style.setProperty('--trackHeight', trackHeight);
       $(this).find('.slick-slide').css('height', trackHeight);
       $(this).find('.slick-slide > div').css('height', trackHeight);
