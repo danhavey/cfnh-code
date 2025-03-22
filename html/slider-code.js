@@ -1,7 +1,5 @@
 
-$(function() {
-  let trackHeight = 0;
-}
+
 
 /*  On Window Load - Fix the Arrows and Dots  */
   
