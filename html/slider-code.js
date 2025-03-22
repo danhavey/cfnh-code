@@ -8,7 +8,7 @@
     
     $('[data-title*="sliderColumn"] .slick-track').each(function() {
       let trackHeight = $(this).css('height');
-      console.log(trackHeight);
+      document.body.style.setProperty('--trackHeight', trackHeight);
       $(this).find('.slick-slide').css('height', trackHeight);
       $(this).find('.slick-slide > div').css('height', trackHeight);
       $(this).find('.slick-slide > div > .container').css('height', trackHeight);
