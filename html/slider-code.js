@@ -14,6 +14,7 @@ $(function() {
     $('[data-title*="sliderColumn"] .slick-track').each(function() {
       trackHeight = $(this).css('height');
       document.body.style.setProperty('--trackHeight', trackHeight);
+      console.log(trackHeight);
       $(this).find('.slick-slide').css('height', trackHeight);
       $(this).find('.slick-slide > div').css('height', trackHeight);
       $(this).find('.slick-slide > div > .container').css('height', trackHeight);
