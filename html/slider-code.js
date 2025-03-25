@@ -40,6 +40,7 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
     let lastSlide = firstClone - 1;
     let autoPlay = slick.options.autoplay;
     let slider = $(this).closest('.slick-initialized').attr('data-title');
+    console.log(slider);
     
     if ( autoPlay == true ) {
       if ( currentSlide == lastSlide ) {
