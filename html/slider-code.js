@@ -39,17 +39,17 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
     let firstClone = slick.slideCount; 
     let lastSlide = firstClone - 1;
     let autoPlay = slick.options.autoplay;
-    let slider = $(this).closest('.slick-initialized').attr('data-title');
-    console.log(slider);
+    let thisSlider = $(this).closest('.slick-initialized').attr('data-title');
+    console.log(thisSlider);
     
     if ( autoPlay == true ) {
       if ( currentSlide == lastSlide ) {
         if ( nextSlide == 0 ) {
-          $('[data-title="' + slider + '"] [data-slick-index="' + firstClone + '"]').addClass('temp-current');
+          $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').addClass('temp-current');
         }
       }
       if ( currentSlide == 0 ) {
-        $('[data-title="' + slider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
+        $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
       }
     } 
   }); 
