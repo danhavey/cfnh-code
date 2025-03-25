@@ -26,16 +26,15 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
   
 /*****     *****     *****/    
   
-//  Run on initialization - if cloned slide is clicked it gets temp-current
-  
+//  Run on initialization - if cloned slide is clicked, and focusOnSelect = true, then it gets .temp-current
   $('[data-title*="mySlider"] .slick-slide.slick-cloned').on('click', function() {
-    let clickedSlide = $(this).attr('data-slick-index');
-    $('[data-title*="mySlider"] .slick-slide.slick-cloned').removeClass('temp-current');
-    $('[data-slick-index="' + clickedSlide + '"]').addClass('temp-current');
+    let focus = $('[data-title*="mySlider"]').slick('slickGetOption', 'focusOnSelect');
+    if ( focus == true ) {
+      $(this).addClass('temp-current'); 
+    }
   });
   
-// Add the temp-current class to the cloned nextSlide
-  
+// Add the .temp-current class to the cloned nextSlide
   $('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
     let firstClone = slick.slideCount; 
     let lastSlide = firstClone - 1;
@@ -44,22 +43,27 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
     if ( autoPlay == true ) {
       if ( currentSlide == lastSlide ) {
         if ( nextSlide == 0 ) {
-          $('[data-slick-index="' + firstClone + '"]').addClass('temp-current');
+          $('[data-slick-index="' + firstClone + '"]', this).addClass('temp-current');
         }
       }
       if ( currentSlide == 0 ) {
-        $('[data-slick-index="' + firstClone + '"]').removeClass('temp-current');
+        $('[data-slick-index="' + firstClone + '"]', this).removeClass('temp-current');
       }
     } 
   }); 
 
-//  Remove temp-current after change
-  
+//  Remove .temp-current After Change
   $('[data-title*="mySlider"]').on('afterChange', function(event, slick, currentSlide) {
     let firstClone = slick.slideCount; 
     let lastSlide = firstClone - 1;
     if ( currentSlide >= 0 && currentSlide <= lastSlide ) {
-      $('[data-title*="mySlider"] .slick-slide.slick-cloned').removeClass('temp-current');
+      $('.slick-slide.slick-cloned', this).removeClass('temp-current');
     };
   });
+  
+//  Remove .temp-current on Swipe
+  $('[data-title*="mySlider"]').on('swipe', function(event, slick, direction) {
+    $('.slick-slide.slick-cloned', this).removeClass('temp-current');
+  });
+  
   
