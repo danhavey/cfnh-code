@@ -6,16 +6,29 @@
     $('button.slick-prev, button.slick-next, .slick-dots button').text('');
     
 /*  Set Slider Sections All To The Same Height  */
-    
+    /*
     $('[data-title*="sliderColumn"] .slick-track').each(function() {
       trackHeight = $(this).css('height');
-      //document.body.style.setProperty('--trackHeight', trackHeight);
-      //console.log("CSS Set", trackHeight);
       $(this).find('.slick-slide').css('height', trackHeight);
       $(this).find('.slick-slide > div').css('height', trackHeight);
       $(this).find('.slick-slide > div > .container').css('height', trackHeight);
     });
   });
+*/
+/*  On Window Resize Set Slider Sections All To The Same Height  */
+/*
+  $(window).on('resize', function() {
+    $('[data-title*="sliderColumn"] .slick-track').each(function() {
+      trackHeight = $(this).css('height');
+      $(this).find('.slick-slide').css('height', trackHeight);
+      $(this).find('.slick-slide > div').css('height', trackHeight);
+      $(this).find('.slick-slide > div > .container').css('height', trackHeight);
+    });
+  });
+
+*/
+
+
   
 /*  On Responsive Breakpoint - Fix the Arrows and Dots  */
   
@@ -40,7 +53,6 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
     let lastSlide = firstClone - 1;
     let autoPlay = slick.options.autoplay;
     let thisSlider = $(this).closest('.slick-initialized').attr('data-title');
-    console.log(thisSlider);
     
     if ( autoPlay == true ) {
       if ( currentSlide == lastSlide ) {
