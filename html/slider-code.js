@@ -6,7 +6,7 @@
     $('button.slick-prev, button.slick-next, .slick-dots button').text('');
     
 /*  Set Slider Sections All To The Same Height  */
-    /*  Turned off March 26
+    /*  Turned off March 26  */
     $('[data-title*="sliderColumn"] .slick-track').each(function() {
       trackHeight = $(this).css('height');
       $(this).find('.slick-slide').css('height', trackHeight);
@@ -14,7 +14,7 @@
       $(this).find('.slick-slide > div > .container').css('height', trackHeight);
     });
   });
-*/
+/**/
   
 /*  On Responsive Breakpoint - Fix the Arrows and Dots  */
   
