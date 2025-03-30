@@ -14,7 +14,7 @@
       $(this).find('.slick-slide > div > .container').css('height', trackHeight);
     });
   });
-/**/
+
   
 /*  On Responsive Breakpoint - Fix the Arrows and Dots  */
   
