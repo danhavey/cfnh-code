@@ -17,19 +17,23 @@ $('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint
 });    
   
 $('[data-title*="mySlider"] .slick-slide.slick-cloned').on('click', function() {
-  let focus = $('[data-title*="mySlider"]').slick('slickGetOption', 'focusOnSelect');
-  if ( focus == true ) {
+  //let focus = $('[data-title*="mySlider"]').slick('slickGetOption', 'focusOnSelect');
+  //if ( focus == true ) {
     $(this).addClass('temp-current'); 
-  }
+  //}
 });
 
 $('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+  //console.log('currentSlide', currentSlide);
+  //console.log('nextSlide', nextSlide);
   let firstClone = slick.slideCount; 
+  //console.log('firstClone=#slides', firstClone);
   let lastSlide = firstClone - 1;
-  let autoPlay = slick.options.autoplay;
+  //console.log('lastSlide=#slides-1', lastSlide);
+  //let autoPlay = slick.options.autoplay;
   let thisSlider = $(this).closest('.slick-initialized').attr('data-title');
   
-  if ( autoPlay == true ) {
+  //if ( autoPlay == true ) {
     if ( currentSlide == lastSlide ) {
       if ( nextSlide == 0 ) {
         $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').addClass('temp-current');
@@ -38,7 +42,7 @@ $('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentS
     if ( currentSlide == 0 ) {
       $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
     }
-  } 
+  //} 
 }); 
 
 $('[data-title*="mySlider"]').on('afterChange', function(event, slick, currentSlide) {
