@@ -39,18 +39,21 @@ $('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentS
         $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').addClass('temp-current');
       }
     }
-    if ( currentSlide == 0 ) {
-      $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
+    if ( currentSlide == 0 ) { //  Fixes Last Slide not working on Prev Arrow
+      if ( nextSlide == lastSlide ) {  
+        $('[data-title="' + thisSlider + '"] [data-slick-index="-1"]').addClass('temp-current');
+        //$('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
     }
   //} 
 }); 
 
 $('[data-title*="mySlider"]').on('afterChange', function(event, slick, currentSlide) {
-  let firstClone = slick.slideCount; 
-  let lastSlide = firstClone - 1;
-  if ( currentSlide >= 0 && currentSlide <= lastSlide ) {
-    $('.slick-slide.slick-cloned', this).removeClass('temp-current');
-  };
+  //let firstClone = slick.slideCount; 
+  //let lastSlide = firstClone - 1;
+  //if ( currentSlide >= 0 && currentSlide <= lastSlide ) {
+    //$('.slick-slide.slick-cloned', this).removeClass('temp-current');
+    $('.slick-slide', this).removeClass('temp-current');
+  //};
 });
 
 $('[data-title*="mySlider"]').on('swipe', function(event, slick, direction) {
