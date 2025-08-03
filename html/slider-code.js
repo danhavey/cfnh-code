@@ -4,7 +4,7 @@ $(window).on('load', function() {
   $('button.slick-prev, button.slick-next, .slick-dots button').text('');
   
   $('[data-title*="sliderColumn"] .slick-track').each(function() {
-    trackHeight = $(this).css('height');
+    let trackHeight = $(this).css('height');
     $(this).find('.slick-slide').css('height', trackHeight);
     $(this).find('.slick-slide > div').css('height', trackHeight);
     $(this).find('.slick-slide > div > .container').css('height', trackHeight);
