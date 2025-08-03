@@ -43,6 +43,7 @@ $('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentS
       if ( nextSlide == lastSlide ) {  
         $('[data-title="' + thisSlider + '"] [data-slick-index="-1"]').addClass('temp-current');
         //$('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').removeClass('temp-current');
+      }
     }
   //} 
 }); 
