@@ -1,4 +1,6 @@
 External JS File stopped working on site
+  
+<script id="slideFix" src="https://cdn.jsdelivr.net/gh/danhavey/cfnh-code@main/html/slider-code.js" defer></script>
 
 //*****  STOP EDITING  *****//  
 $(window).on('load', function() {
