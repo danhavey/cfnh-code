@@ -1,4 +1,68 @@
- 
+External JS File stopped working on site
+
+//*****  STOP EDITING  *****//  
+$(window).on('load', function() {
+  $('button.slick-prev, button.slick-next, .slick-dots button').addClass("fas");
+  $('button.slick-prev, button.slick-next, .slick-dots button').text('');
+  
+  $('[data-title*="sliderColumn"] .slick-track').each(function() {
+    let trackHeight = $(this).css('height');
+    $(this).find('.slick-slide').css('height', trackHeight);
+    $(this).find('.slick-slide > div').css('height', trackHeight);
+    $(this).find('.slick-slide > div > .container').css('height', trackHeight);
+  });
+});
+  
+$('[data-title*="mySlider"]').on('breakpoint', function(event, slick, breakpoint){
+  $('button.slick-prev, button.slick-next, .slick-dots button').addClass("fas");
+  $('button.slick-prev, button.slick-next, .slick-dots button').text('');
+});    
+  
+$('[data-title*="mySlider"] .slick-slide.slick-cloned').on('click', function() {
+  $(this).addClass('temp-current'); 
+});
+  
+$('[data-title*="mySlider"]').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+  let firstClone = slick.slideCount; 
+  let lastSlide = firstClone - 1;
+  //console.log('currentSlide', currentSlide);
+  //console.log('nextSlide', nextSlide);
+  //console.log('firstClone=#slides', firstClone);
+  //console.log('lastSlide=#slides-1', lastSlide);
+  let thisSlider = $(this).closest('.slick-initialized').attr('data-title');
+  
+  if ( currentSlide == lastSlide ) {  
+    if ( nextSlide == 0 ) {  
+      $('[data-title="' + thisSlider + '"] [data-slick-index="' + firstClone + '"]').addClass('temp-current');
+    }
+  }
+  if ( currentSlide == 0 ) {  //  Fixes Last Slide not working on Prev Arrow
+    if ( nextSlide == lastSlide ) {   
+      $('[data-title="' + thisSlider + '"] [data-slick-index="-1"]').addClass('temp-current');
+    }
+  }
+}); 
+  
+$('[data-title*="mySlider"]').on('afterChange', function(event, slick, currentSlide) {
+  $('.slick-slide', this).removeClass('temp-current');
+});
+
+$('[data-title*="mySlider"]').on('swipe', function(event, slick, direction) {
+  $('.slick-slide.slick-cloned', this).removeClass('temp-current');
+});
+  $('#slickSlider, #slideFile').remove();
+</script>
+
+
+
+
+
+
+
+
+
+
+
 $(window).on('load', function() {
   $('button.slick-prev, button.slick-next, .slick-dots button').addClass("fas");
   $('button.slick-prev, button.slick-next, .slick-dots button').text('');
